@@ -29,7 +29,11 @@
           body.append('completed', false);
 
           const url = 'https://httpbin.org/post';
-          const res = await fetch(url);
+          const res = await fetch(url, {
+            method: 'POST',
+            body: body
+          });
+
           const obj = await res.json();
           this.data = obj;
           console.log(JSON.stringify(this.data, null, 2));
