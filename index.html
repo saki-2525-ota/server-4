@@ -21,6 +21,13 @@
   function dataset() {
     return {
       data: false,
+       async function fetchData() {
+          const body = {
+          userId: 1,
+          title:'fetch関数をマスターする',
+          completed:false
+          };
+      
       async fetchData() {
         const url = 'https://httpbin.org/post';
         const res = await fetch(url);
