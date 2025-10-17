@@ -23,10 +23,17 @@
       data: false,
       async fetchData() {
         const url = 'https://httpbin.org/post';
-        const res = await fetch(url);
-        const obj = await res.json();
-        this.data = obj;
-        console.log(JSON.stringify(this.data, null, 2));
+        const res = await fetch(url, {
+            method: 'POST',
+            headers:{
+              'Content-Type':'application/json; charset=utf-8'
+            },
+            body: JSON.stringify(body)
+          });
+
+          const obj = await res.json();
+          this.data = JSON.parse(obj.data);
+          console.log(JSON.stringify(this.data, null, 2));
       }
     }
   }
